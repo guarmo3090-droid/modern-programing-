@@ -20,6 +20,7 @@ jobs:
         python-version: '3.10'
 
     - name: Install dependencies
+      working-directory: ./lab1 
       run: |
         python -r pip install --upgrade pip
         if [-f  lab1/requirements.txt]; then pip install -r lab1/requirements.txt ; fi 
