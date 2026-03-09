@@ -21,7 +21,8 @@ jobs:
 
     - name: Install dependencies
       run: |
-        pip install -r lab1/requirements.txt 
+        python -r pip install --upgrade pip
+        if [-f  lab1/requirements.txt]; then pip install -r lab1/requirements.txt ; fi 
         pip install flake8 pytest
 
     - name: Lint with flake8
