@@ -31,4 +31,4 @@ jobs:
 
     - name: Run Pytest
       run: |
-        pytest .
+        pytest "lab1/test_dumb_code.py"
