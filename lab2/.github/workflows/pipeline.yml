@@ -3,11 +3,13 @@ name: CIpipeline
 on:
   push:
     branches: [ "lab2", "main" ]
+  pull_request:
+    branches: [ "main" ]
+  workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
-#sdas
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
@@ -16,7 +18,8 @@ jobs:
       packages: write
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Log in to GitHub Registry
         uses: docker/login-action@v3
@@ -53,4 +56,4 @@ jobs:
           
           docker pull $IMAGE
 
-          docker run $IMAGE pytest test_app.py
+          docker run $IMAGE pytest test_app.py``
